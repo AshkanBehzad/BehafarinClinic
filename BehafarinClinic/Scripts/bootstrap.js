@@ -1184,7 +1184,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     var defaults = this.getDefaults()
 
     this._options && $.each(this._options, function (key, value) {
-      if (defaults[key] != value) options[key] = value
+      if (defaults[Key] != value) options[Key] = value
     })
 
     return options

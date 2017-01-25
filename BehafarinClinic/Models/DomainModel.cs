@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -33,6 +34,7 @@ namespace BehafarinClinic.Models
     #region  DialysisPatient
     public partial class DialysisPatient
     {
+        [Key]
         public int PatientId { get; set; }
         public string RecepPesrsonnelCode { get; set; }
         public Nullable<int> OrganizationId { get; set; }
@@ -79,7 +81,7 @@ namespace BehafarinClinic.Models
         public string Description { get; set; }
 
         public virtual InsuranceOrganization InsuranceOrganization { get; set; }
-        public virtual Personal Personal { get; set; }
+        public virtual Personnel Personal { get; set; }
 
         public virtual ICollection<DialysisSession> DialysisSession { get; set; }
     }
@@ -162,8 +164,8 @@ namespace BehafarinClinic.Models
         public string NurseObservation { get; set; }
 
         public virtual DialysisPatient DialysisPatient { get; set; }
-        public virtual Personal Personal { get; set; }
-        public virtual Personal Personal1 { get; set; }
+        public virtual Personnel Personal { get; set; }
+        public virtual Personnel Personal1 { get; set; }
 
         public virtual ICollection<ConsummedGoodsItem> ConsummedGoodsItem { get; set; }
         public virtual ICollection<HourlyEvaluation> HourlyEvaluation { get; set; }
@@ -197,7 +199,7 @@ namespace BehafarinClinic.Models
         public string PersonnelCode { get; set; }
 
         public virtual HourlyEvaluation HourlyEvaluation { get; set; }
-        public virtual Personal Personal { get; set; }
+        public virtual Personnel Personal { get; set; }
     }
     #endregion
 
@@ -254,7 +256,7 @@ namespace BehafarinClinic.Models
         [Display()]
         public string Desctiption { get; set; }
 
-        public virtual Personal Personal { get; set; }
+        public virtual Personnel Personal { get; set; }
 
         public virtual ICollection<ServiceItem> ServiceItem { get; set; }
     }
@@ -277,7 +279,7 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  Personal
-    public partial class Personal
+    public partial class Personnel
     {
         [Key]
         public string PersonalCode { get; set; }
@@ -350,8 +352,10 @@ namespace BehafarinClinic.Models
         [Display()]
         public string Username { get; set; }
         [Display()]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display()]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [Display()]
         public string SecurityQuestion { get; set; }
@@ -360,7 +364,7 @@ namespace BehafarinClinic.Models
         [Display()]
         public string PersonnelCode { get; set; }
 
-        public virtual Personal Personal { get; set; }
+        public virtual Personnel Personal { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
     }

@@ -30,6 +30,16 @@ namespace BehafarinClinic.Models
             return new ApplicationDbContext();
         }
 
+    }
+
+    public class BehafarinBdContext : DbContext
+    {
+
+        public BehafarinBdContext() : base("BehafarinClinic")
+        {
+
+        }
+
         public DbSet<ConsumableGoods> ConsumableGoods { get; set; }
         public DbSet<DialysisPatient> DialysisPatients { get; set; }
         public DbSet<DialysisSession> DialysisSessions { get; set; }
@@ -39,7 +49,7 @@ namespace BehafarinClinic.Models
         public DbSet<InfirmaryPersonnel> InfirmaryPersonnels { get; set; }
         public DbSet<InfirmaryReception> InfirmaryReceptions { get; set; }
         public DbSet<InsuranceOrganization> InsuranceOrganizations { get; set; }
-        public DbSet<Personal> Personnels { get; set; }
+        public DbSet<Personnel> Personnels { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceItem> ServiceItems { get; set; }

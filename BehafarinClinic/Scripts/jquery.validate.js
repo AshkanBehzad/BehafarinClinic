@@ -337,7 +337,7 @@ $.extend($.validator, {
 			});
 			var rules = this.settings.rules;
 			$.each(rules, function( key, value ) {
-				rules[key] = $.validator.normalizeRule(value);
+				rules[Key] = $.validator.normalizeRule(value);
 			});
 
 			function delegate(event) {
