@@ -29,5 +29,21 @@ namespace BehafarinClinic.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<ConsumableGoods> ConsumableGoods { get; set; }
+        public DbSet<DialysisPatient> DialysisPatients { get; set; }
+        public DbSet<DialysisSession> DialysisSessions { get; set; }
+        public DbSet<ConsummedGoodsItem> ConsummedGoodsItems { get; set; }
+        public DbSet<EvaluationNurse> EvaluationNurses { get; set; }
+        public DbSet<HourlyEvaluation> HourlyEvaluations { get; set; }
+        public DbSet<InfirmaryPersonnel> InfirmaryPersonnels { get; set; }
+        public DbSet<InfirmaryReception> InfirmaryReceptions { get; set; }
+        public DbSet<InsuranceOrganization> InsuranceOrganizations { get; set; }
+        public DbSet<Personal> Personnels { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<ServiceItem> ServiceItems { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
     }
 }
