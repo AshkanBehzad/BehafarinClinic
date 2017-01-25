@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,18 +10,18 @@ namespace BehafarinClinic.Models
 
     public partial class InfirmaryReception
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InfirmaryReception()
-        {
-            this.ServiceItem = new HashSet<ServiceItem>();
-        }
-
+        [Key]
         public int IReceptionId { get; set; }
         public Nullable<int> OrganizationId { get; set; }
+        [Display()]
         public string PersonalCode { get; set; }
+        [Display()]
         public Nullable<System.DateTime> DateTime { get; set; }
+        [Display()]
         public string PatientName { get; set; }
+        [Display()]
         public Nullable<int> PayableAmount { get; set; }
+        [Display()]
         public string Desctiption { get; set; }
 
         public virtual Personal Personal { get; set; }

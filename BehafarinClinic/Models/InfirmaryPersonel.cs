@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,18 +8,14 @@ namespace BehafarinClinic.Models
 {
     public partial class InfirmaryPersonnel
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InfirmaryPersonnel()
-        {
-            this.ServiceItem = new HashSet<ServiceItem>();
-        }
-
+        [Key]
         public int IPersonnelId { get; set; }
         public string PersonnelCode { get; set; }
+        [Display()]
         public string FirstName { get; set; }
+        [Display()]
         public string LastName { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<ServiceItem> ServiceItem { get; set; }
     }
 }
