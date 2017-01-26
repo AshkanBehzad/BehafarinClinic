@@ -27,7 +27,7 @@ namespace BehafarinClinic.Models
         [Display()]
         public string Description { get; set; }
 
-        public virtual ICollection<ConsummedGoodsItem> ConsummedGoodsItem { get; set; }
+        public virtual ICollection<ConsummedGoodsItem> ConsummedGoodsItems { get; set; }
     }
     #endregion
 
@@ -79,11 +79,12 @@ namespace BehafarinClinic.Models
         public string ViralMarkers { get; set; }
         [Display()]
         public string Description { get; set; }
-
+        [ForeignKey("InsuranceOrganizationId")]
         public virtual InsuranceOrganization InsuranceOrganization { get; set; }
-        public virtual Personnel Personal { get; set; }
+        [ForeignKey("PersonnelId")]
+        public virtual Personnel Personnel { get; set; }
 
-        public virtual ICollection<DialysisSession> DialysisSession { get; set; }
+        public virtual ICollection<DialysisSession> DialysisSessions { get; set; }
     }
     #endregion
 
@@ -95,8 +96,8 @@ namespace BehafarinClinic.Models
         public Nullable<int> PatientId { get; set; }
         [Display()]
         public Nullable<System.DateTime> SessionDate { get; set; }
-        public string Doc_PersonalCode { get; set; }
-        public string Rec_PersonalCode { get; set; }
+        public string Doc_PersonnelCode { get; set; }
+        public string Rec_PersonnelCode { get; set; }
         [Display()]
         public string Diagnosis { get; set; }
         [Display()]
@@ -164,12 +165,14 @@ namespace BehafarinClinic.Models
         public string NurseObservation { get; set; }
 
         public virtual DialysisPatient DialysisPatient { get; set; }
-        public virtual Personnel Personal { get; set; }
-        public virtual Personnel Personal1 { get; set; }
+        [ForeignKey("PersonnelId")]
+        public virtual Personnel Personnel { get; set; }
+        [ForeignKey("PersonnelId")]
+        public virtual Personnel Personnel1 { get; set; }
 
-        public virtual ICollection<ConsummedGoodsItem> ConsummedGoodsItem { get; set; }
-        public virtual ICollection<HourlyEvaluation> HourlyEvaluation { get; set; }
-        
+        public virtual ICollection<ConsummedGoodsItem> ConsummedGoodsItems { get; set; }
+        public virtual ICollection<HourlyEvaluation> HourlyEvaluations { get; set; }
+
     }
     #endregion
 
@@ -199,7 +202,7 @@ namespace BehafarinClinic.Models
         public string PersonnelCode { get; set; }
 
         public virtual HourlyEvaluation HourlyEvaluation { get; set; }
-        public virtual Personnel Personal { get; set; }
+        public virtual Personnel Personnel { get; set; }
     }
     #endregion
 
@@ -246,7 +249,7 @@ namespace BehafarinClinic.Models
         public int InfirmaryReceptionId { get; set; }
         public Nullable<int> OrganizationId { get; set; }
         [Display()]
-        public string PersonalCode { get; set; }
+        public string PersonnelCode { get; set; }
         [Display()]
         public Nullable<System.DateTime> DateTime { get; set; }
         [Display()]
@@ -256,7 +259,7 @@ namespace BehafarinClinic.Models
         [Display()]
         public string Desctiption { get; set; }
 
-        public virtual Personnel Personal { get; set; }
+        public virtual Personnel Personnel { get; set; }
 
         public virtual ICollection<ServiceItem> ServiceItem { get; set; }
     }
@@ -278,7 +281,7 @@ namespace BehafarinClinic.Models
     }
     #endregion
 
-    #region  Personal
+    #region  Personnel
     public class Personnel
     {
         [Key]
@@ -364,12 +367,11 @@ namespace BehafarinClinic.Models
         [Display()]
         public string PersonnelCode { get; set; }
 
-        public virtual Personnel Personal { get; set; }
+        public virtual Personnel Personnel { get; set; }
 
         public virtual ICollection<UserRole> UserRole { get; set; }
     }
     #endregion
-
 
     #region  UserRole
     public class UserRole
