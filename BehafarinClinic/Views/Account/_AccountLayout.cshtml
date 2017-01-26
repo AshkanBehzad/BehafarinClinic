@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*@Styles.Render("~/Content/style_sheet/lib-plugin/bootstrap.min.css");
+    @Styles.Render("~/Content/style_sheet/app/app-sb.css");
+    @Styles.Render("~/Content/style_sheet/fonts/font-awesome/font-awesome.min.css");
+    @Styles.Render("~/Content/style_sheet/app/login.css");
+    @Scripts.Render("~/Content/script/lib-plugin/jquery-1.11.0.js");
+    @Scripts.Render("~/Content/script/lib-plugin/bootstrap.min.js");
+    @Scripts.Render("~/Content/script/app/app-sb.js");*@
+    @Styles.Render("~/content/css")
+    <link href="../Content/app-sb.css" rel="stylesheet" />
+    <link href="../Content/fonts/font-awesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="../Content/app.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+
+    <link href="~/Content/AccountStyle.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="../Scripts/metisMenu.min.js"></script>
+    <script src="../Scripts/app-sb.js"></script>
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">ورود</h3>
+                        </div>
+                        <div class="panel-body">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    
+</body>
+</html>
+
+

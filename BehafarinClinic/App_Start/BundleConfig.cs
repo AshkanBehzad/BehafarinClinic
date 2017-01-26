@@ -25,7 +25,36 @@ namespace BehafarinClinic
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/app.css",
                       "~/Content/site.css"));
+
+
+
+            //Persian Datepicker
+            bundles.Add(new ScriptBundle("~/bundles/persian-datepicker").Include(
+                "~/Scripts/persian-date.js",
+                "~/Scripts/persian-datepicker-0.4.5.min.js"));
+            bundles.Add(new StyleBundle("~/Content/persian-datepicker").Include(
+                "~/Content/persian-datepicker-blue.css",
+                "~/Content/persian-datepicker-0.4.5.min.css"));
+
+            //app-sb
+            bundles.Add(new ScriptBundle("~/bundles/app-sb").Include(
+               "~/Scripts/app-sb.js"));
+            bundles.Add(new StyleBundle("~/Content/app-sb").Include(
+                "~/Content/app-sb.css"));
+
+            //font-awsome
+            bundles.Add(new StyleBundle("~/Content/font-awsome").Include(
+               "~/Content/fonts/font-awesome/font-awesome.min.css"));
+            //metisMenu
+            bundles.Add(new ScriptBundle("~/bundles/metisMenu").Include(
+               "~/Scripts/metisMenu.min.js"));
+            
         }
+        
+    
+   
+
     }
 }
