@@ -9,10 +9,10 @@ namespace BehafarinClinic.Models
 {
 
     #region  ConsumableGoods
-    public partial class ConsumableGoods
+    public class ConsumableGoods
     {
         [Key]
-        public int GoodsId { get; set; }
+        public int ConsumableGoodsId { get; set; }
         [Display()]
         public string Name { get; set; }
         [Display()]
@@ -32,10 +32,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  DialysisPatient
-    public partial class DialysisPatient
+    public class DialysisPatient
     {
         [Key]
-        public int PatientId { get; set; }
+        public int DialysisPatientId { get; set; }
         public string RecepPesrsonnelCode { get; set; }
         public Nullable<int> OrganizationId { get; set; }
         [Display()]
@@ -88,10 +88,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  DialysisSession
-    public partial class DialysisSession
+    public class DialysisSession
     {
         [Key]
-        public int SessionId { get; set; }
+        public int DialysisSessionId { get; set; }
         public Nullable<int> PatientId { get; set; }
         [Display()]
         public Nullable<System.DateTime> SessionDate { get; set; }
@@ -174,10 +174,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  ConsummedGoodsItem
-    public partial class ConsummedGoodsItem
+    public class ConsummedGoodsItem
     {
         [Key]
-        public int CGItemId { get; set; }
+        public int ConsummedGoodsItemId { get; set; }
         public Nullable<int> SessionId { get; set; }
         public Nullable<int> GoodsId { get; set; }
         [Range(0, 9999, ErrorMessage = "")]
@@ -191,10 +191,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  EvaluationNurse
-    public partial class EvaluationNurse
+    public class EvaluationNurse
     {
         [Key]
-        public int HEvaId { get; set; }
+        public int EvaluationNurseId { get; set; }
         [StringLength(15, ErrorMessage = "")]
         public string PersonnelCode { get; set; }
 
@@ -204,10 +204,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  HourlyEvaluation
-    public partial class HourlyEvaluation
+    public class HourlyEvaluation
     {
         [Key]
-        public int HEvalId { get; set; }
+        public int HourlyEvaluationId { get; set; }
         public Nullable<int> SessionId { get; set; }
         [Range(0, 9999, ErrorMessage = "")]
         [Display()]
@@ -225,10 +225,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  InfirmaryPersonnel
-    public partial class InfirmaryPersonnel
+    public class InfirmaryPersonnel
     {
         [Key]
-        public int IPersonnelId { get; set; }
+        public int InfirmaryPersonnelId { get; set; }
         public string PersonnelCode { get; set; }
         [Display()]
         public string FirstName { get; set; }
@@ -240,10 +240,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  InfirmaryReception
-    public partial class InfirmaryReception
+    public class InfirmaryReception
     {
         [Key]
-        public int IReceptionId { get; set; }
+        public int InfirmaryReceptionId { get; set; }
         public Nullable<int> OrganizationId { get; set; }
         [Display()]
         public string PersonalCode { get; set; }
@@ -263,10 +263,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  InsuranceOrganization
-    public partial class InsuranceOrganization
+    public class InsuranceOrganization
     {
         [Key]
-        public int IOrgId { get; set; }
+        public int InsuranceOrganizationId { get; set; }
         public string OrganizationCode { get; set; }
         [Display()]
         public string OrganizationName { get; set; }
@@ -279,10 +279,10 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  Personal
-    public partial class Personnel
+    public class Personnel
     {
         [Key]
-        public string PersonalCode { get; set; }
+        public string PersonnelId { get; set; }
         [Display()]
         public string FiratName { get; set; }
         [Display()]
@@ -300,7 +300,7 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  Role
-    public partial class Role
+    public class Role
     {
         [Key]
         public int RoleId { get; set; }
@@ -312,7 +312,7 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  Service
-    public partial class Service
+    public class Service
     {
         [Key]
         public int ServiceId { get; set; }
@@ -326,7 +326,7 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  ServiceItem
-    public partial class ServiceItem
+    public class ServiceItem
     {
         [Key]
         public int ServiceItemId { get; set; }
@@ -345,7 +345,7 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  User
-    public partial class User
+    public class User
     {
         [Key]
         public int UserId { get; set; }
@@ -372,10 +372,10 @@ namespace BehafarinClinic.Models
 
 
     #region  UserRole
-    public partial class UserRole
+    public class UserRole
     {
         [Key]
-        public int Id { get; set; }
+        public int UserRoleId { get; set; }
         public Nullable<int> RoleId { get; set; }
         public Nullable<int> UserId { get; set; }
 
