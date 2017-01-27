@@ -161,3 +161,4 @@ C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\Mi
 C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\obj\Debug\BehafarinClinic.dll
 C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\obj\Debug\BehafarinClinic.pdb
+C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\obj\Debug\BehafarinClinic.csprojResolveAssemblyReference.cache

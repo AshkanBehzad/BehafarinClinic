@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace BehafarinClinic.Models
 {
@@ -38,6 +39,21 @@ namespace BehafarinClinic.Models
         {
             Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Entity<HourlyEvaluation>()
+                .HasMany<Personnel>(he => he.Nurses)
+                .WithMany(nurse => nurse.Evaluations)
+                .Map(cs =>
+                {
+                    cs.MapLeftKey("HEvalId");
+                    cs.MapRightKey("NurseId");
+                    cs.ToTable("EvaluationNurse");
+                });
+
+        }
 
         public static ApplicationDbContext Create()
         {
@@ -47,7 +63,7 @@ namespace BehafarinClinic.Models
         public DbSet<DialysisPatient> DialysisPatients { get; set; }
         public DbSet<DialysisSession> DialysisSessions { get; set; }
         public DbSet<ConsumedGoodsItem> ConsumedGoodsItems { get; set; }
-        public DbSet<EvaluationNurse> EvaluationNurses { get; set; }
+        
         public DbSet<HourlyEvaluation> HourlyEvaluations { get; set; }
         public DbSet<InfirmaryPersonnel> InfirmaryPersonnels { get; set; }
         public DbSet<InfirmaryReception> InfirmaryReceptions { get; set; }

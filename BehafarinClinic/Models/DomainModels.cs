@@ -199,16 +199,16 @@ namespace BehafarinClinic.Models
     #endregion
 
     #region  EvaluationNurse
-    public class EvaluationNurse
-    {
-        [Key]
-        public int EvaluationNurseId { get; set; }
-        //[StringLength(15, ErrorMessage = "")]
-        public int PersonnelId { get; set; }
+    //public class EvaluationNurse
+    //{
+    //    [Key]
+    //    public int EvaluationNurseId { get; set; }
+    //    //[StringLength(15, ErrorMessage = "")]
+    //    public int PersonnelId { get; set; }
 
-        public virtual HourlyEvaluation HourlyEvaluation { get; set; }
-        public virtual Personnel Personnel { get; set; }
-    }
+    //    public virtual HourlyEvaluation HourlyEvaluation { get; set; }
+    //    public virtual Personnel Personnel { get; set; }
+    //}
     #endregion
 
     #region  HourlyEvaluation *needs view within Dialysis Session view*
@@ -228,7 +228,7 @@ namespace BehafarinClinic.Models
         public int EvaluationTime { get; set; }
 
         public virtual DialysisSession DialysisSession { get; set; }
-        public virtual EvaluationNurse EvaluationNurse { get; set; }
+        public virtual ICollection<Personnel> Nurses { get; set; }
     }
     #endregion
 
@@ -300,11 +300,11 @@ namespace BehafarinClinic.Models
         [Display(Name ="نوع")]
         public  PersonnelType Type { get; set; }
 
-        public virtual ICollection<DialysisPatient> DialysisPatient { get; set; }
-        public virtual ICollection<DialysisSession> DialysisSession { get; set; }
-        public virtual ICollection<DialysisSession> DialysisSession1 { get; set; }
-        public virtual ICollection<EvaluationNurse> EvaluationNurse { get; set; }
-        public virtual ICollection<InfirmaryReception> InfirmaryReception { get; set; }
+        public virtual ICollection<DialysisPatient> DialysisPatients { get; set; }
+        public virtual ICollection<DialysisSession> InitiatedSessions { get; set; }//personnel as Dialysis Nurse OR Receptionist
+        public virtual ICollection<DialysisSession> ObservedSessions { get; set; }//Personnel as Dialysis Doctor
+        public virtual ICollection<HourlyEvaluation> Evaluations { get; set; }//Personnel as Dialysis Nurse
+        public virtual ICollection<InfirmaryReception> InfirmaryReceptions { get; set; }//personnel as Receptionist
         public virtual ICollection<ApplicationUser> User { get; set; }
     }
     #endregion

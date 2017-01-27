@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 @using Microsoft.AspNet.Identity.EntityFramework
-@using MentalHealthClinic.Models
+@using BehafarinClinic.Models
 
 @{
 
@@ -70,17 +70,29 @@
 
                     <!-- /.nav-second-level -->
                 </li>
-
-
-
-
-
-
-
-
+                
 
                 <li>
-                    <a href="#"><i class="fa fa-heartbeat fa-fw"></i>مدیریت بیماران<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-heartbeat fa-fw"></i>مدیریت پذیرش درمانگاه<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("ثبت پذیرش جدید", "Create", "Patients")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست کل پذیرش‌ها", "Index", "Patients")
+                        </li>
+                        <li>
+                            @*<a href="#">گزارش سریع</a>*@
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+
+                                
+
+                <li>
+                    <a href="#"><i class="fa fa-heartbeat fa-fw"></i>مدیریت بیماران دیالیز<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             @Html.ActionLink("افزودن بیمار جدید", "Create", "Patients")
@@ -97,13 +109,13 @@
                 
 
                 <li>
-                    <a href="#"><i class="fa fa-stethoscope fa-fw"></i>مدیریت ویزیت‌ها<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-stethoscope fa-fw"></i>مدیریت جلسات دیالیز<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("افزودن ویزیت‌ جدید", "Create", "Appointments")
+                            @Html.ActionLink("افزودن جلسه‌ی‌ جدید", "Create", "Appointments")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست کل ویزیت‌‌ها", "Index", "Appointments")
+                            @Html.ActionLink("لیست کل جلسات", "Index", "Appointments")
                         </li>
                         <li>
                             @*<a href="#">گزارش سریع</a>*@
@@ -113,22 +125,104 @@
 
                     </ul>
                 </li>
-
+                <!--/Dialysis Personnel Only+Admin-->
 
 
                 @*<li>
                         <a href="#"><i class="fa fa-users fa-fw"></i>مدیریت کاربران<span class="fa arrow"></span></a>
                     </li>*@
 
-
-                @if (User.IsInRole("Admin"))
+                <!--Admin Only-->
+                @if (User.IsInRole("Admin")||1==1)
                 {
                 <li>
-                    <a href="@Url.Action("Index", "Administrative")"><i class="fa fa-wrench fa-fw"></i>تنظیمات مدیریتی </a>
+                    <a href="@Url.Action("Index", "Administrative")"><i class="fa fa-wrench fa-fw"></i>تنظیمات  </a>
 
                     <!-- /.nav-second-level -->
                 </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت کاربران<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست ", "Index", " ")
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت سازمان‌های طرف قرارداد<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست ", "Index", " ")
+                        </li>
+
+
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت کالاهای مصرفی<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست ", "Index", " ")
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت پرسنل درمانگاه<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست ", "Index", " ")
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت پرسنل دیالیز و پذیرش<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست ", "Index", " ")
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت خدمات درمانگاهی<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست ", "Index", " ")
+                        </li>
+
+
+                    </ul>
+                </li>
                 }
+                <!--/Admin Only-->
             </ul>
         </div>
 

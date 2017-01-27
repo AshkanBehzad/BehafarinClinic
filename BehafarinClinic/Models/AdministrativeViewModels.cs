@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace MentalHealthClinic.Models
+namespace BehafarinClinic.Models
 {
     public class AddUserViewModel
     {

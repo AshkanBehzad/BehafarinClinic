@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MentalHealthClinic.Models;
+using BehafarinClinic.Models;
 
-namespace MentalHealthClinic.Controllers
+namespace BehafarinClinic.Controllers
 {
     public class AdministrativeController : Controller
     {
