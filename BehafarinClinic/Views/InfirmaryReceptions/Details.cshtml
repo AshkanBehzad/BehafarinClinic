@@ -1,0 +1,66 @@
+﻿@model BehafarinClinic.Models.InfirmaryReception
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InfirmaryReception</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReceptionPersonnel.PersonnelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReceptionPersonnel.PersonnelCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PatientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayableAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayableAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriptions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriptions)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InfirmaryReceptionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

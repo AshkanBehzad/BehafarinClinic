@@ -1,0 +1,42 @@
+﻿@model BehafarinClinic.Models.InsuranceOrganization
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InsuranceOrganization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganizationCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrganizationCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InsuranceOrganizationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

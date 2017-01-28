@@ -80,7 +80,6 @@ C:\Users\Behzad Chizari\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\Mic
 C:\Users\Behzad Chizari\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Behzad Chizari\Documents\GitHub\BehafarinClinic\BehafarinClinic\obj\Debug\BehafarinClinic.dll
 C:\Users\Behzad Chizari\Documents\GitHub\BehafarinClinic\BehafarinClinic\obj\Debug\BehafarinClinic.pdb
-C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\ApplicationInsights.config
 C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\roslyn\csc.exe
 C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Ashkan Taravati\Documents\GitHub\BehafarinClinic\BehafarinClinic\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll

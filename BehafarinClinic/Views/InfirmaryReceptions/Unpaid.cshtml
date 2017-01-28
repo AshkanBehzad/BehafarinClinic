@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BehafarinClinic.Models.InfirmaryReception>
+
+@{
+    ViewBag.Title = "Unpaid";
+}
+
+<h2>Unpaid</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InsuranceOrg.OrganizationCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceptionPersonnel.PersonnelCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayableAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descriptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFinished)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsPaid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsuranceOrg.OrganizationCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceptionPersonnel.PersonnelCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayableAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descriptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFinished)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsPaid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.InfirmaryReceptionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.InfirmaryReceptionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.InfirmaryReceptionId })
+        </td>
+    </tr>
+}
+
+</table>

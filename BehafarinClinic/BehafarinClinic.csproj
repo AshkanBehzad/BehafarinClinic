@@ -197,16 +197,24 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministrativeController.cs" />
+    <Compile Include="Controllers\ConsumableGoodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfirmaryPersonnelsController.cs" />
+    <Compile Include="Controllers\InfirmaryReceptionsController.cs" />
+    <Compile Include="Controllers\InsuranceOrganizationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PersonnelsController.cs" />
+    <Compile Include="Controllers\ServiceItemsController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdministrativeViewModels.cs" />
-    <Compile Include="Models\DomainModels.cs" />
+    <Compile Include="Models\BusinessViewModels.cs" />
+    <Compile Include="Models\BusinessModels.cs" />
+    <Compile Include="Models\DataAccessLayer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -223,9 +231,6 @@
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -274,11 +279,43 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\_AccountLayout.cshtml" />
     <Content Include="Views\Shared\_NavigationBar.cshtml" />
+    <Content Include="Views\ServiceItems\Create.cshtml" />
+    <Content Include="Views\ServiceItems\Delete.cshtml" />
+    <Content Include="Views\ServiceItems\Details.cshtml" />
+    <Content Include="Views\ServiceItems\Edit.cshtml" />
+    <Content Include="Views\ServiceItems\Index.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\InfirmaryPersonnels\Create.cshtml" />
+    <Content Include="Views\InfirmaryPersonnels\Delete.cshtml" />
+    <Content Include="Views\InfirmaryPersonnels\Details.cshtml" />
+    <Content Include="Views\InfirmaryPersonnels\Edit.cshtml" />
+    <Content Include="Views\InfirmaryPersonnels\Index.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Create.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Delete.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Details.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Edit.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Index.cshtml" />
     <Content Include="Views\Personnels\Create.cshtml" />
     <Content Include="Views\Personnels\Delete.cshtml" />
     <Content Include="Views\Personnels\Details.cshtml" />
     <Content Include="Views\Personnels\Edit.cshtml" />
     <Content Include="Views\Personnels\Index.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Unpaid.cshtml" />
+    <Content Include="Views\InfirmaryReceptions\Unfinished.cshtml" />
+    <Content Include="Views\InsuranceOrganizations\Create.cshtml" />
+    <Content Include="Views\InsuranceOrganizations\Delete.cshtml" />
+    <Content Include="Views\InsuranceOrganizations\Details.cshtml" />
+    <Content Include="Views\InsuranceOrganizations\Edit.cshtml" />
+    <Content Include="Views\InsuranceOrganizations\Index.cshtml" />
+    <Content Include="Views\ConsumableGoods\Create.cshtml" />
+    <Content Include="Views\ConsumableGoods\Delete.cshtml" />
+    <Content Include="Views\ConsumableGoods\Details.cshtml" />
+    <Content Include="Views\ConsumableGoods\Edit.cshtml" />
+    <Content Include="Views\ConsumableGoods\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

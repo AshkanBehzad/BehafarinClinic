@@ -6,15 +6,17 @@
 
     var CurrentUserLastName="";
     var CurrentUserTitle = "";
-    if (User.Identity.IsAuthenticated&&User.Identity.Name!="admin")
-    {
-        var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
-        var manager = new UserManager<ApplicationUser>(userStore);
-        var currentUser = manager.FindById(User.Identity.GetUserId());
-        CurrentUserLastName = currentUser.LastName.ToString(); ;
-        CurrentUserTitle =currentUser.Gender.ToString();
-        
-    }
+    
+        if (User.Identity.IsAuthenticated)
+        {
+            var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var currentUser = manager.FindById(User.Identity.GetUserId());
+            CurrentUserLastName = (currentUser.LastName==null) ? "کابر محترم" : currentUser.LastName.ToString();
+            //CurrentUserTitle =(currentUser.Gender==0)? "" : currentUser.Gender.ToString();
+            CurrentUserTitle = currentUser.Gender.ToString();
+
+        }
 }
   <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -29,18 +31,7 @@
     </div>
     <!-- /.navbar-header -->
 
-    @*@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-        @Html.AntiForgeryToken()
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("وقت بخیر" + User.Identity.GetUserName() + " ! ", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">خروج</a></li>
-        </ul>
-    }*@
-
+   
     <!-- /.navbar-top-links -->
     <div class="navbar-default sidebar" role="navigation">
 
@@ -71,25 +62,36 @@
                     <!-- /.nav-second-level -->
                 </li>
                 
-
+                @if (User.IsInRole("Receptionist") || User.IsInRole("Admin") || 1 == 1)
+                {
                 <li>
                     <a href="#"><i class="fa fa-heartbeat fa-fw"></i>مدیریت پذیرش درمانگاه<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("ثبت پذیرش جدید", "Create", "Patients")
+                            @Html.ActionLink("ثبت پذیرش جدید", "Create", "InfirmaryReceptions")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست کل پذیرش‌ها", "Index", "Patients")
+                            @Html.ActionLink("لیست  پذیرش‌های ناتمام", "Unfinished", "InfirmaryReceptions")
                         </li>
                         <li>
-                            @*<a href="#">گزارش سریع</a>*@
+                            @Html.ActionLink("لیست  پذیرش‌های منتظر پرداخت", "Unpaid", "InfirmaryReceptions")
                         </li>
+                        <li>
+                            @Html.ActionLink("ثبت قلم خدمت جدید برای پذیرش", "Create", "ServiceItems")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست اقلام خدمت", "Index", "ServiceItems")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست کل پذیرش‌ها", "Index", "InfirmaryReceptions")
+                        </li>
+                        
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
+                }
 
 
-                                
 
                 <li>
                     <a href="#"><i class="fa fa-heartbeat fa-fw"></i>مدیریت بیماران دیالیز<span class="fa arrow"></span></a>
@@ -100,9 +102,7 @@
                         <li>
                             @Html.ActionLink("لیست کل بیماران", "Index", "Patients")
                         </li>
-                        <li>
-                            @*<a href="#">گزارش سریع</a>*@
-                        </li>
+                        
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
@@ -112,20 +112,23 @@
                     <a href="#"><i class="fa fa-stethoscope fa-fw"></i>مدیریت جلسات دیالیز<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("افزودن جلسه‌ی‌ جدید", "Create", "Appointments")
+                            @Html.ActionLink("افزودن جلسه‌ی‌ جدید", "Create", "DialysisSessions")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست کل جلسات", "Index", "Appointments")
+                            @Html.ActionLink("افزودن گزارش ساعتی جدید", "#", "DialysisSessions")
                         </li>
                         <li>
-                            @*<a href="#">گزارش سریع</a>*@
+                            @Html.ActionLink("لیست جلسات ناتمام", "Unfinished", "DialysisSessions")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست کل جلسات", "Index", "DialysisSessions")
                         </li>
 
 
 
                     </ul>
                 </li>
-                <!--/Dialysis Personnel Only+Admin-->
+               
 
 
                 @*<li>
@@ -140,42 +143,28 @@
 
                     <!-- /.nav-second-level -->
                 </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-fw"></i>مدیریت کاربران<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            @Html.ActionLink("افزودن ", "Create", " ")
-                        </li>
-                        <li>
-                            @Html.ActionLink("لیست ", "Index", " ")
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
                 <li>
                     <a href="#"><i class="fa fa-fw"></i>مدیریت سازمان‌های طرف قرارداد<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("افزودن ", "Create", " ")
+                            @Html.ActionLink("افزودن ", "Create", "InsuranceOrganizations")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست ", "Index", " ")
+                            @Html.ActionLink("لیست ", "Index", "InsuranceOrganizations")
                         </li>
 
 
                     </ul>
                 </li>
-                
+
                 <li>
                     <a href="#"><i class="fa fa-fw"></i>مدیریت کالاهای مصرفی<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("افزودن ", "Create", " ")
+                            @Html.ActionLink("افزودن ", "Create", "ConsumableGoods")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست ", "Index", " ")
+                            @Html.ActionLink("لیست ", "Index", "ConsumableGoods")
                         </li>
 
 
@@ -185,15 +174,35 @@
                     <a href="#"><i class="fa fa-fw"></i>مدیریت پرسنل درمانگاه<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("افزودن ", "Create", " ")
+                            @Html.ActionLink("افزودن ", "Create", "InfirmaryPersonnels")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست ", "Index", " ")
+                            @Html.ActionLink("لیست ", "Index", "InfirmaryPersonnels")
                         </li>
 
 
                     </ul>
                 </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw"></i>مدیریت کاربران<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            @Html.ActionLink("افزودن کاربر جدید ", "Create", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست کاربران ", "Index", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("افزودن نقش جدید ", "Index", " ")
+                        </li>
+                        <li>
+                            @Html.ActionLink("لیست نقش‌ها ", "Index", " ")
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
 
                 <li>
                     <a href="#"><i class="fa fa-fw"></i>مدیریت پرسنل دیالیز و پذیرش<span class="fa arrow"></span></a>
@@ -212,10 +221,10 @@
                     <a href="#"><i class="fa fa-fw"></i>مدیریت خدمات درمانگاهی<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            @Html.ActionLink("افزودن ", "Create", " ")
+                            @Html.ActionLink("افزودن خدمت جدید ", "Create", "Services")
                         </li>
                         <li>
-                            @Html.ActionLink("لیست ", "Index", " ")
+                            @Html.ActionLink("لیست خدمات ", "Index", "Services")
                         </li>
 
 

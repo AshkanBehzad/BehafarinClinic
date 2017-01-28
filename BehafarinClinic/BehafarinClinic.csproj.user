@@ -9,9 +9,10 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <WebStackScaffolding_DbContextTypeFullName>BehafarinClinic.Models.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
